@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <beans>
+        <bean class="com.xgl.week5.loadobject.Student" name="xgl">
+            <property name="name" value="xgl"/>
+            <property name="age" value="1"/>
+        </bean>
+    </beans>
+</beans>
