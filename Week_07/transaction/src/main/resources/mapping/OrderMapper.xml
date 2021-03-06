@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jikeshijian.transaction.mapper.OrderMapper">
+    <insert id="insert" parameterType="com.jikeshijian.transaction.domain.Order">
+        insert into
+          tb_order
+          (
+            order_number,
+            sell_account,
+            buy_account,
+            product_number,
+            buy_num,
+            price,
+            detail,
+            order_time,
+            create_time,
+            update_time
+          )
+        values
+        (
+          #{orderNumber},
+          #{sellAccount},
+          #{buyAccount},
+          #{productNumber},
+          #{buyNum},
+          #{price},
+          #{detail},
+          #{orderTime},
+          #{createTime},
+          #{updateTime}
+        )
+    </insert>
+
+    <insert id="insertBatch" parameterType="list">
+        INSERT tb_order
+        (
+          order_number,
+          sell_account,
+          buy_account,
+          product_number,
+          buy_num,
+          price,
+          detail,
+          order_time,
+          create_time,
+          update_time
+        )
+        VALUES
+        <foreach collection ="list" item="order" index="index" separator =",">
+            (
+            #{order.orderNumber},
+            #{order.sellAccount},
+            #{order.buyAccount},
+            #{order.productNumber},
+            #{order.buyNum},
+            #{order.price},
+            #{order.detail},
+            #{order.orderTime},
+            #{order.createTime},
+            #{order.updateTime}
+            )
+        </foreach >
+    </insert>
+
+    <select id="selectByKey" parameterType="integer" resultType="string">
+        select detail from tb_order where id = #{id}
+    </select>
+</mapper>

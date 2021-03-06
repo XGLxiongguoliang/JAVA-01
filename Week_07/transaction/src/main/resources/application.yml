@@ -1,0 +1,24 @@
+server:
+  port: 8086
+
+spring:
+  datasource:
+    test1:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 571314
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/test1?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
+      type: com.alibaba.druid.pool.DruidDataSource
+
+    test2:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 571314
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/test2?characterEncoding=utf-8&serverTimezone=UTC&useSSL=false
+      type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.jikeshijian.transaction.domain
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
